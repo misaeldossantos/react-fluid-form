@@ -1,0 +1,45 @@
+{
+  "name": "fluid-form",
+  "version": "0.0.1",
+  "description": "Forms to react applications that combines mobx with context api",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack ."
+  },
+  "keywords": [
+    "form",
+    "mobx",
+    "react",
+    "react-native"
+  ],
+  "peerDependencies": {
+    "lodash": "^4.17.15",
+    "styled-components": "^5.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misaeldossantos/fluid-form.git"
+  },
+  "author": "Misael dos Santos",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "mobx": "^5.15.4",
+    "mobx-react-lite": "^2.0.6",
+    "styled-components": "^5.1.0",
+    "yup": "^0.28.5"
+  }
+}
