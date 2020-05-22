@@ -42,7 +42,7 @@ export default class FormClass {
 
     @action
     setValues(values) {
-        this.values = merge(this.values, values)
+        this.values = merge(toJS(this.values), values)
     }
 
     @action
