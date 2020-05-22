@@ -1,6 +1,6 @@
 {
-  "name": "fluid-form",
-  "version": "0.0.1",
+  "name": "react-fluid-form",
+  "version": "0.0.2",
   "description": "Forms to react applications that combines mobx with context api",
   "main": "lib/index.js",
   "scripts": {
