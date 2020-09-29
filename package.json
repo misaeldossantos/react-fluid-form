@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack ."
   },
+  "types": "./lib/types/index.d.ts",
   "keywords": [
     "form",
     "mobx",
@@ -39,6 +40,7 @@
   "dependencies": {
     "mobx": "^5.15.4",
     "mobx-react-lite": "^2.0.6",
+    "react-fluid-form": "^0.0.2",
     "styled-components": "^5.1.0",
     "yup": "^0.28.5"
   }
