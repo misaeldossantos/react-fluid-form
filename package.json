@@ -1,6 +1,6 @@
 {
   "name": "react-fluid-form",
-  "version": "0.0.3",
+  "version": "0.2.1",
   "description": "Forms to react applications that combines mobx with context api",
   "main": "lib/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
   ],
   "peerDependencies": {
     "lodash": "^4.17.15",
-    "styled-components": "^5.1.0"
+    "yup": "*"
   },
   "repository": {
     "type": "git",
@@ -38,10 +38,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "mobx": "^5.15.4",
-    "mobx-react-lite": "^2.0.6",
-    "react-fluid-form": "^0.0.2",
-    "styled-components": "^5.1.0",
-    "yup": "^0.28.5"
+    "mobx": "^6.1.7",
+    "mobx-react": "^7.1.0"
   }
 }

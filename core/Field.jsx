@@ -1,5 +1,5 @@
 import { get, set } from 'lodash'
-import { observer } from 'mobx-react-lite'
+import { observer } from 'mobx-react'
 import React, { useContext, useState, useEffect } from 'react'
 import useFormComponents from '../hooks/useFormComponents'
 import Context from './FormContext'
@@ -13,7 +13,6 @@ function Field({
     onChange,
     displayValue,
     defaultValue,
-    debounce = 0,
     ...otherProps
 }) {
 
@@ -55,7 +54,11 @@ function Field({
         return (displayValue ? displayValue(value) : value)
     }
 
-    const [localValue, setLocalValue] = useState(getDisplayValue)
+    const getInitialValue = React.useCallback(() => {
+        return getDisplayValue() || defaultValue || getInitialValueForType(props.type)
+    }, [props.type])
+
+    const [localValue, setLocalValue] = useState(getInitialValue)
 
     useEffect(() => {
         return reaction(() => get(values, path), () => {

@@ -15,12 +15,4 @@ function FormProvider({
     </FormSettingsContext.Provider>
 }
 
-/*
-    components = {
-        form: {
-            textInput: props
-        }
-    }
-*/
-
 export default FormProvider

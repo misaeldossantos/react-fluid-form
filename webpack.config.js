@@ -12,6 +12,7 @@ module.exports = {
     },
     externals: [nodeExternals(), {
         react: 'react',
+        yup: 'yup',
     }],
     optimization: {
         minimize: true
