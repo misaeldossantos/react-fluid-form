@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import * as Yup from 'yup';
+import * as yup from 'yup';
 
 export default function useYupValidator(schema) {
 
@@ -9,7 +9,7 @@ export default function useYupValidator(schema) {
                 schema.validateSyncAt(path, values)
                 return ""
             } catch (err) {
-                if (err instanceof Yup.ValidationError) {
+                if (err instanceof yup.ValidationError) {
                     return err.message
                 }
                 return null
@@ -23,7 +23,7 @@ export default function useYupValidator(schema) {
             return {}
         } catch (err) {
             const validationErrors = {};
-            if (err instanceof Yup.ValidationError) {
+            if (err instanceof yup.ValidationError) {
                 err.inner.forEach(error => {
                     validationErrors[error.path] = error.message;
                 });

@@ -6,7 +6,13 @@ import Context from './FormContext'
 import { wrapperFunctions } from './utils'
 import { reaction } from 'mobx'
 
-function Field({
+const Field: React.FC<{
+    path: string,
+    use: string,
+    onChange: (value: any) => void,
+    displayValue: any,
+    defaultValue: any
+}> = ({
     path,
     use,
     children,
@@ -14,7 +20,7 @@ function Field({
     displayValue,
     defaultValue,
     ...otherProps
-}) {
+}) => {
 
     const {
         values,
@@ -76,7 +82,7 @@ function Field({
         error: get(errors, path)
     }
 
-    const child = React.Children.only(children)
+    const child: React.ReactElement = React.Children.only(children) as React.ReactElement
 
     return React.cloneElement(
         child,
@@ -100,7 +106,7 @@ const DEFAULTS = {
     }
 }
 
-function getInitialValueForType(type = String) {
+function getInitialValueForType(type: Function = String) {
     switch (type) {
         case String:
             return ""

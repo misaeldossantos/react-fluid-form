@@ -1,0 +1,44 @@
+{
+  "name": "@fluidform/core",
+  "version": "1.0.0",
+  "description": "Forms to react applications that combines mobx with context api",
+  "scripts": {
+    "build": "lerna exec -- rollup -c ../../rollup.config.js"
+  },
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "form",
+    "mobx",
+    "react",
+    "react-native"
+  ],
+  "peerDependencies": {
+    "lodash": "^4.17.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misaeldossantos/fluid-form.git"
+  },
+  "author": "Misael dos Santos",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "dependencies": {
+    "mobx": "^6.1.7",
+    "mobx-react": "^7.1.0",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@rollup/plugin-babel": "^5.0.3",
+    "@rollup/plugin-node-resolve": "^8.0.1",
+    "rollup": "^2.15.0"
+  }
+}

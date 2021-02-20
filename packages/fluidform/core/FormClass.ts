@@ -9,7 +9,10 @@ export default class FormClass {
 
     validator;
 
-    constructor({ initialValues, validator }) {
+    constructor({ initialValues, validator }: {
+        initialValues: {[key: string]: any},
+        validator: (values: {[key: string]: any}, path: string) => {[key: string]: string}
+    }) {
         this.values = initialValues || {}
         this.validator = validator
         makeAutoObservable(this)

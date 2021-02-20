@@ -1,0 +1,13 @@
+{
+  "name": "@fluidform/yup",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "scripts": {
+    "build": "lerna exec -- rollup -c ../../rollup.config.js"
+  },
+  "dependencies": {
+    "yup": "^0.32.9"
+  }
+}
