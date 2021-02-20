@@ -4,7 +4,7 @@
   "scripts": {
     "new-version": "lerna version --conventional-commits --no",
     "prerelease": "lerna run clean",
-    "release": "lerna publish",
+    "release": "lerna publish from-git",
     "build": "lerna run build"
   },
   "devDependencies": {
