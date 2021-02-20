@@ -1,6 +1,6 @@
 {
   "name": "@fluidform/yup",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
@@ -9,6 +9,5 @@
   },
   "dependencies": {
     "yup": "^0.32.9"
-  },
-  "gitHead": "43fe8e930ef4c1ccd4edab7bbd47e88b42bd4700"
+  }
 }
