@@ -5,11 +5,8 @@
   "scripts": {
     "build": "lerna exec -- rollup -c ../../rollup.config.js"
   },
-  "main": "dist/bundle.cjs.js",
-  "module": "dist/bundle.esm.js",
-  "files": [
-    "lib"
-  ],
+  "main": "bundle.cjs.js",
+  "module": "bundle.esm.js",
   "publishConfig": {
     "access": "public"
   },
@@ -19,26 +16,17 @@
     "react",
     "react-native"
   ],
-  "peerDependencies": {
-    "lodash": "^4.17.15"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/misaeldossantos/fluid-form.git"
   },
   "author": "Misael dos Santos",
   "license": "MIT",
-  "devDependencies": {
-    "lerna": "^3.22.1"
+  "peerDependencies": {
+    "mobx": "^6.1.7",
+    "mobx-react": "^7.1.0"
   },
   "dependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
-    "@babel/preset-react": "^7.10.1",
-    "@rollup/plugin-babel": "^5.0.3",
-    "@rollup/plugin-node-resolve": "^8.0.1",
-    "mobx": "^6.1.7",
-    "mobx-react": "^7.1.0",
-    "rollup": "^2.15.0"
+    "lodash": "^4.17.15"
   }
 }

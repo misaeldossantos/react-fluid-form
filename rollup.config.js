@@ -1,36 +1,43 @@
-import resolve from '@rollup/plugin-node-resolve'
+import {nodeResolve} from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
 import babel from '@rollup/plugin-babel'
 import { terser } from 'rollup-plugin-terser'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import commonjs from '@rollup/plugin-commonjs';
+import external from 'rollup-plugin-peer-deps-external';
 
 const production = !process.env.ROLLUP_WATCH
 
 const PACKAGE_ROOT_PATH = process.cwd()
 const { LERNA_PACKAGE_NAME, LERNA_ROOT_PATH } = process.env
 
+const pkg = require(PACKAGE_ROOT_PATH + "/package.json")
+
 export default {
   input: `${PACKAGE_ROOT_PATH}/index.ts`,
   external: [
-    /node_modules/
+    "react",
+    /node_modules/,
+    ...Object.keys(pkg.peerDependencies || {})
   ],
   output: [
     {
-      file: 'dist/bundle.cjs.js',
-      format: 'cjs'
+      file: `bundle.cjs.js`,
+      format: 'cjs',
     },
     {
-      file: 'dist/bundle.esm.js',
+      file: 'bundle.esm.js',
       format: 'esm'
     },
     {
       name: LERNA_PACKAGE_NAME,
-      file: 'dist/bundle.umd.js',
+      file: 'bundle.umd.js',
       format: 'umd'
     }
   ],
   plugins: [
-    resolve(),
+    commonjs(),
+    external(),
+    nodeResolve(),
     typescript({
       tsconfig: `${LERNA_ROOT_PATH}/tsconfig.json`
     }),
@@ -40,6 +47,6 @@ export default {
       babelHelpers: 'runtime'
     }),
     production && terser(),
-    peerDepsExternal(),
+    // peerDepsExternal(),
   ]
 }

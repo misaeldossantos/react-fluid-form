@@ -1,5 +1,5 @@
 import {makeAutoObservable, set, toJS} from "mobx"
-import {merge, isEmpty, set as _set} from 'lodash'
+import {merge, isEmpty, set as _set, debounce} from 'lodash'
 
 export default class FormClass {
 
@@ -10,11 +10,11 @@ export default class FormClass {
     validator;
 
     constructor({ initialValues, validator }: {
-        initialValues: {[key: string]: any},
-        validator: (values: {[key: string]: any}, path: string) => {[key: string]: string}
+        initialValues?: {[key: string]: any},
+        validator?: (values: {[key: string]: any}, path: string) => {[key: string]: string}
     }) {
         this.values = initialValues || {}
-        this.validator = validator
+        this.validator = validator || ((values, path) => ({}))
         makeAutoObservable(this)
     }
 
@@ -30,9 +30,9 @@ export default class FormClass {
         return isEmpty(errors)
     }
 
-    async validatePath(path) {
+    validatePath = debounce(async (path) => {
         this.setPathError(path, await this.validator(this.values, path))
-    }
+    }, 300)
 
     setPathError(path, error) {
         _set(this.errors, path, error)
@@ -43,7 +43,7 @@ export default class FormClass {
     }
 
     setPathValue(path, value) {
-        set(this.values, path, value)
+        _set(this.values, path, value)
     }
 
     get raw() {

@@ -1,9 +1,16 @@
 import { createContext } from "react";
 import FormClass from "./FormClass";
 
+//@ts-ignore
 export default createContext<{
 	values: {[key: string]: any},
 	onBlur: (path: string) => void,
-	errors: string[],
+	onChange?: (path: string) => void,
+	errors: {[key: string]: any},
 	form: FormClass,
-}>(null)
+}>({
+	values: {},
+	onBlur: () => {},
+	errors: {},
+	form: new FormClass({ })
+})

@@ -1,10 +1,15 @@
 import { observer } from 'mobx-react-lite'
 import React, { useCallback } from 'react'
+import FormClass from './FormClass'
 import Context from './FormContext'
 
-function Form({ children, validateOnBlur, form }) {
+const Form: React.FC<{
+    validateOnBlur?: boolean,
+    validateOnChange?: boolean,
+    form: FormClass
+}> = ({ children, validateOnBlur, validateOnChange, form }) => {
 
-    if(!form) return children
+    if(!form) return children as React.ReactElement
 
     const {errors, values} = form
 
@@ -14,10 +19,17 @@ function Form({ children, validateOnBlur, form }) {
         }
     }, [validateOnBlur])
 
+    const onChange = useCallback( (path) => {
+        if(validateOnChange) {
+            form.validatePath(path)
+        }
+    }, [validateOnChange])
+
     return <Context.Provider
         value={{
             values,
             onBlur,
+            onChange,
             errors,
             form
         }}

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import FormClass from "../core/FormClass";
+import FormClass from "../FormClass";
 
 export default function ({
   initialValues,

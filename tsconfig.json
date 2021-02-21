@@ -1,10 +1,13 @@
 {
 	"compilerOptions": {
-		"target": "es2020",
+		"target": "esnext",
 		"jsx": "react",
+		"module": "esnext", 
+		"esModuleInterop": true,    
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
-		"noImplicitAny": false
-	},
-	"include": ["**/*.ts"]
+		"noImplicitAny": false,
+		"strict": true,
+		"isolatedModules": true,
+	}
 }

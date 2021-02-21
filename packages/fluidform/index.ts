@@ -1,2 +1,2 @@
-export * from './core'
-export * from './hooks'
+export * from './src'
+export * from './src/hooks'
