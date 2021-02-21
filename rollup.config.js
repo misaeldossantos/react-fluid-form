@@ -1,9 +1,10 @@
-import {nodeResolve} from '@rollup/plugin-node-resolve'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
 import babel from '@rollup/plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 import commonjs from '@rollup/plugin-commonjs';
 import external from 'rollup-plugin-peer-deps-external';
+import dts from "rollup-plugin-dts";
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -19,6 +20,7 @@ export default {
     /node_modules/,
     ...Object.keys(pkg.peerDependencies || {})
   ],
+  sourceMap: 'inline',
   output: [
     {
       file: `bundle.cjs.js`,
@@ -31,7 +33,8 @@ export default {
     {
       name: LERNA_PACKAGE_NAME,
       file: 'bundle.umd.js',
-      format: 'umd'
+      format: 'umd',
+      sourcemap: true
     }
   ],
   plugins: [
@@ -47,6 +50,5 @@ export default {
       babelHelpers: 'runtime'
     }),
     production && terser(),
-    // peerDepsExternal(),
   ]
 }

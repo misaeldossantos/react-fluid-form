@@ -13,7 +13,8 @@
   "files": [
     "bundle.cjs.js",
     "bundle.esm.js",
-    "bundle.umd.js"
+    "bundle.umd.js",
+    "bundle.umd.js.map"
   ],
   "keywords": [
     "form",
