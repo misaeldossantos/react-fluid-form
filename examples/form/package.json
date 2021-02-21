@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fluidform/core": "file:../../packages/fluidform",
-    "@fluidform/yup": "file:../../packages/fluidform-yup",
+    "@fluidform/core": "^1.0.4",
+    "@fluidform/yup": "^1.0.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
