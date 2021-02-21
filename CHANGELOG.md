@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/misaeldossantos/fluid-form/compare/v1.0.3...v1.0.4) (2021-02-21)
+
+
+### Features
+
+* example ([b855331](https://github.com/misaeldossantos/fluid-form/commit/b855331b19d44cc574b74dee9e5ed06b37f9832c))
+
+
+
+
+
 ## [1.0.3](https://github.com/misaeldossantos/fluid-form/compare/v1.0.2...v1.0.3) (2021-02-20)
 
 **Note:** Version bump only for package root

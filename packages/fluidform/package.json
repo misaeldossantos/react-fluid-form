@@ -1,6 +1,6 @@
 {
   "name": "@fluidform/core",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Forms to react applications that combines mobx with context api",
   "scripts": {
     "build": "lerna exec -- rollup -c ../../rollup.config.js"
