@@ -3,14 +3,13 @@ import FormClass from '../../core/FormClass';
 
 const Validator: (values, path) => {[key: string]: string}
 
-export const useForm: (props: { initialValues: {[key: string]: any}, validator: Validator }) => FormClass
+export const useForm: (props: { initialValues?: {[key: string]: any}, validator?: Validator }) => FormClass
 
 export const useYupValidator: (schema) => Validator 
 
 export const Field: React.FC<{
     path: string,
     use: string,
-    children: React.ReactChildren,
     onChange: (value) => void,
     displayValue: (value) => any,
     defaultValue: any,
@@ -27,7 +26,6 @@ export const FormProvider: React.FC<{
 }>
 
 export const Form: React.FC<{
-    children: React.ReactChildren, 
     validateOnBlur?: Function, 
     form: FormClass
 }>
