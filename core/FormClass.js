@@ -36,6 +36,10 @@ export default class FormClass {
     }
 
     setValues(values) {
+        this.values = toJS(this.values)
+    }
+
+    mergeValues(values) {
         this.values = merge(toJS(this.values), values)
     }
 
