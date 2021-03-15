@@ -1,12 +1,15 @@
 {
   "name": "react-fluid-form",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "Forms to react applications that combines mobx with context api",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack ."
   },
+  "files": [
+    "lib"
+  ],
   "types": "./lib/types/index.d.ts",
   "keywords": [
     "form",

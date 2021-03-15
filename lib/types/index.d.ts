@@ -1,33 +1,37 @@
-import React from 'react'
-import FormClass from '../../core/FormClass';
+import React from "react";
+import FormClass from "../../core/FormClass";
 
-const Validator = (values, path) => {[key: string]: string}
+const Validator: (values, path) => { [key: string]: string };
 
-export const useForm = (props: { initialValues: {[key: string]: any}, validator: Validator }) => FormClass
+export const useForm: (props: {
+  initialValues?: { [key: string]: any };
+  validator?: Validator;
+}) => FormClass;
 
-export const useYupValidator = (schema) => Validator 
+export const useYupValidator: (schema) => Validator;
 
-export const Field = (props: {
-    path: string,
-    use: string,
-    children: React.ReactChildren,
-    onChange?: (value) => void,
-    displayValue?: (value) => any,
-    defaultValue?: any,
-    debounce?: integer
-}) => React.ReactElement
+export const Field: React.FC<{
+  path: string;
+  use: string;
+  onChange?: (value) => void;
+  displayValue?: (value) => any;
+  defaultValue?: any;
+  debounce?: integer;
+}>;
 
-export const FormProvider = (props: {
-    components: ({ [key: string]: {
-        type?: Function, 
-        asChange?: any[],
-        defaultValue?: any,
-        asValue?: string 
-    } })
-}) => React.ReactElement
+export const FormProvider: React.FC<{
+  components: {
+    [key: string]: {
+      type?: Function;
+      asChange?: any[];
+      defaultValue?: any;
+      asValue?: string;
+    };
+  };
+}>;
 
-export const Form = (props: {
-    children: React.ReactChildren, 
-    validateOnBlur?: boolean, 
-    form: FormClass
-}) => React.ReactElement
+export const Form: React.FC<{
+  children: React.ReactChildren;
+  validateOnBlur?: boolean;
+  form: FormClass;
+}>;
