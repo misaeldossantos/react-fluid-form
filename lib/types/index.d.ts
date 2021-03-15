@@ -11,16 +11,16 @@ export const Field = (props: {
     path: string,
     use: string,
     children: React.ReactChildren,
-    onChange: (value) => void,
-    displayValue: (value) => any,
-    defaultValue: any,
-    debounce: integer
+    onChange?: (value) => void,
+    displayValue?: (value) => any,
+    defaultValue?: any,
+    debounce?: integer
 }) => React.ReactElement
 
 export const FormProvider = (props: {
     components: ({ [key: string]: {
-        type: Function, 
-        asChange?: string[],
+        type?: Function, 
+        asChange?: any[],
         defaultValue?: any,
         asValue?: string 
     } })
@@ -28,6 +28,6 @@ export const FormProvider = (props: {
 
 export const Form = (props: {
     children: React.ReactChildren, 
-    validateOnBlur?: Function, 
+    validateOnBlur?: boolean, 
     form: FormClass
 }) => React.ReactElement
