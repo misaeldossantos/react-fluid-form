@@ -31,7 +31,6 @@ export const FormProvider: React.FC<{
 }>;
 
 export const Form: React.FC<{
-  children: React.ReactChildren;
   validateOnBlur?: boolean;
   form: FormClass;
 }>;
