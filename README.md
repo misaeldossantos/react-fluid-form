@@ -22,22 +22,16 @@ I used Mobx for store the state (https://mobx.js.org)
 
 ### Table of Contents
 
-- [React Fluid Form](#react-fluid-form)
-    - [Reactive forms for react and react native, using hooks and Mobx@6](#reactive-forms-for-react-and-react-native-using-hooks-and-mobx6)
-  - [Installation:](#installation)
-  - [Inspiration](#inspiration)
-  - [Quick start](#quick-start)
-    - [Table of Contents](#table-of-contents)
-    - [1. Initial configuration](#1-initial-configuration)
-      - [1.1 Define components](#11-define-components)
-      - [1.2 Add \<FormProvider />](#12-add-formprovider-)
-    - [2. Create your form](#2-create-your-form)
-      - [2.1 Call useForm hook](#21-call-useform-hook)
-      - [2.2 Validate the form](#22-validate-the-form)
-      - [2.3 Wrap your component with \<Form />](#23-wrap-your-component-with-form-)
-      - [2.3 Wrap your field with \<Field />](#23-wrap-your-field-with-field-)
-    - [3. Form instance](#3-form-instance)
-    - [Contributions](#contributions)
+- [1. Initial configuration](#1-initial-configuration)
+  - [1.1 Define components](#11-define-components)
+  - [1.2 Add \<FormProvider />](#12-add-formprovider-)
+- [2. Create your form](#2-create-your-form)
+  - [2.1 Call useForm hook](#21-call-useform-hook)
+  - [2.2 Validate the form](#22-validate-the-form)
+  - [2.3 Wrap your component with \<Form />](#23-wrap-your-component-with-form-)
+  - [2.3 Wrap your field with \<Field />](#23-wrap-your-field-with-field-)
+- [3. Form instance](#3-form-instance)
+- [Contributions](#contributions)
 
 
 ### 1. Initial configuration
