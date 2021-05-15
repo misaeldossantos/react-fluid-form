@@ -138,7 +138,7 @@ const validator = function(path, values) {
 	const { person: {name} } = values
 
 	if(path) {
-		// validating especific path of form
+		// validating specific path of form
 		if(path === "person.name" && name) { 
 			return "Name of person is required"
 		}
@@ -217,8 +217,8 @@ Form instance has some helper properties and methods:
 | `from.errors`                    |    void     |            Errors object             |
 | `from.validatePath(path)`        |    void     |        Validate path of form         |
 | `from.setValues(values)`         |    void     |       Pass new values to form        |
-| `from.setPathValue(path, value)` |    void     |     Set value for especific path     |
-| `from.setPathError(path, error)` |    void     |     Set error for especific path     |
+| `from.setPathValue(path, value)` |    void     |     Set value for specific path      |
+| `from.setPathError(path, error)` |    void     |     Set error for specific path      |
 | `from.mergeValues(values)`       |    void     | Merge values with new values to form |
 
 ### Contributions
