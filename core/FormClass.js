@@ -1,16 +1,17 @@
-import {makeAutoObservable, set, toJS} from "mobx"
-import {merge, isEmpty, set as _set} from 'lodash'
+import { makeAutoObservable, set, toJS } from "mobx"
+import { merge, isEmpty, set as _set } from 'lodash'
 
 export default class FormClass {
 
-    errors = {};
+    errors;
 
-    values = {};
+    values;
 
     validator;
 
-    constructor({ initialValues, validator }) {
-        this.values = initialValues || {}
+    constructor({ initialValues = {}, validator }) {
+        this.values = initialValues
+        this.errors = {}
         this.validator = validator
         makeAutoObservable(this)
     }
@@ -20,7 +21,7 @@ export default class FormClass {
     }
 
     get isValid() {
-        if(!this.validator) {
+        if (!this.validator) {
             return false
         }
         const errors = this.validator(this.values)
@@ -36,7 +37,7 @@ export default class FormClass {
     }
 
     setValues(values) {
-        this.values = toJS(this.values)
+        this.values = toJS(values)
     }
 
     mergeValues(values) {
@@ -44,7 +45,7 @@ export default class FormClass {
     }
 
     setPathValue(path, value) {
-        set(this.values, path, value)
+        _set(this.values, path, value)
     }
 
     get raw() {
