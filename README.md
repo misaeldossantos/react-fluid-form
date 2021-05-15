@@ -21,14 +21,14 @@ I used Mobx for store the state (https://mobx.js.org)
 ## Quick start
 
 ### Table of Contents
-1. [Initial configuration](#1-initial-configuration)
-1.1 [Define components](#11-define-components)
-1.2 [Add \<FormProvider />](#12-add-formprovider-)
-2. [Create your form](#2-create-your-form)
-2.1 [Call useForm hook](#21-call-useform-hook)
-2.2 [Validate the form](#22-validate-the-form)
-2.3 [ Wrap your component with \<Form />](#23-wrap-your-component-with-form-)
-3. [Form instance](#3-form-instance)
+- [1. Initial configuration](#1-initial-configuration)
+	- [1.1 Define components](#11-define-components)
+	- [1.2 Add \<FormProvider />](#12-add-formprovider-)
+- [2. Create your form](#2-create-your-form)
+	- [2.1 Call useForm hook](#21-call-useform-hook)
+	- [2.2 Validate the form](#22-validate-the-form)
+	- [2.3 Wrap your component with \<Form />](#23-wrap-your-component-with-form-)
+- [3. Form instance](#3-form-instance)
 
 
 ### 1. Initial configuration
@@ -213,8 +213,8 @@ Form instance has some helper properties and methods:
 | Prop/Method                      | Return type |             Description              |
 | :------------------------------- | :---------: | :----------------------------------: |
 | `form.isValid`                   |   boolean   |      Check if the forn is valid      |
-| `from.raw`                       |    void     |          Get values to save          |
-| `from.errors`                    |    void     |            Errors object             |
+| `from.raw`                       |    object     |          Get values to save          |
+| `from.errors`                    |    object     |            Errors object             |
 | `from.validatePath(path)`        |    void     |        Validate path of form         |
 | `from.setValues(values)`         |    void     |       Pass new values to form        |
 | `from.setPathValue(path, value)` |    void     |     Set value for specific path      |
