@@ -74,7 +74,7 @@ const components = {
 After, you need wrap root component with `<FormProvider />`, and pass components:
 
 ```tsx
-import { FormProvider } from 'react-fluid-form'
+import { FormProvider } form 'react-fluid-form'
 
 function App() {
   return <FormProvider components={components}>
@@ -94,7 +94,7 @@ With instance, you can get the result values, errors, validate programmatically,
 
 
 ```typescript
-import { useForm } from 'react-fluid-form'
+import { useForm } form 'react-fluid-form'
 
 function MyForm() {
   const form = useForm({
@@ -114,12 +114,12 @@ Optionally, pass the validator. React fluid form, by default, uses `yup` for val
 Example code:
 
 ```typescript
-import {useYupValidator, useForm} from 'react-fluid-form'
-import * as yup from 'yup'
+import {useYupValidator, useForm} form 'react-fluid-form'
+import * as yup form 'yup'
 
 // Inside component:
 
-// Unsing yup:
+// Using yup:
 const schema = yup.object().shape({
   person: yup.object({
     name: yup.string().required()
@@ -137,9 +137,9 @@ const validator = function(path, values) {
   // path: "person.name"
   // values: {person: {name: ""}}
 
-  // If path is undefined, react-fluid-form is validating entire form
   const { person: {name} } = values
 
+  // If path is undefined, react-fluid-form is validating entire form
   if(path) {
     // validating specific path of form
     if(path === "person.name" && name) { 
@@ -162,7 +162,7 @@ const validator = function(path, values) {
 #### 2.3 Wrap your component with \<Form />
 
 ```tsx
-import {useForm, Form, Field} from 'react-fluid-form'
+import {useForm, Form, Field} form 'react-fluid-form'
 
 function MyForm() {
   const form = useForm()
@@ -181,8 +181,8 @@ function MyForm() {
 
 
 ```tsx
-import {useForm, Form, Field} from 'react-fluid-form'
-import {observer} from 'mobx-react'
+import {useForm, Form, Field} form 'react-fluid-form'
+import {observer} form 'mobx-react'
 
 function MyForm() {
   const form = useForm()
@@ -215,14 +215,14 @@ Form instance has some helper properties and methods:
 
 | Prop/Method                      | Return type |             Description              |
 | :------------------------------- | :---------: | :----------------------------------: |
-| `form.isValid`                   |   boolean   |      Check if the forn is valid      |
-| `from.raw`                       |   object    |          Get values to save          |
-| `from.errors`                    |   object    |            Errors object             |
-| `from.validatePath(path)`        |    void     |        Validate path of form         |
-| `from.setValues(values)`         |    void     |       Pass new values to form        |
-| `from.setPathValue(path, value)` |    void     |     Set value for specific path      |
-| `from.setPathError(path, error)` |    void     |     Set error for specific path      |
-| `from.mergeValues(values)`       |    void     | Merge values with new values to form |
+| `form.isValid`                   |   boolean   |      Check if the form is valid      |
+| `form.raw`                       |   object    |          Get values to save          |
+| `form.errors`                    |   object    |            Errors object             |
+| `form.validatePath(path)`        |    void     |        Validate path of form         |
+| `form.setValues(values)`         |    void     |       Pass new values to form        |
+| `form.setPathValue(path, value)` |    void     |     Set value for specific path      |
+| `form.setPathError(path, error)` |    void     |     Set error for specific path      |
+| `form.mergeValues(values)`       |    void     | Merge values with new values to form |
 
 ### Contributions
 
