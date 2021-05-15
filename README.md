@@ -3,21 +3,28 @@
 ### Reactive forms for react and react native, using hooks and Mobx@6
 
 ![npm version](https://img.shields.io/npm/v/react-fluid-form) ![downloads](https://img.shields.io/npm/dt/react-fluid-form)
+
 ## Installation:
 
 ```bash
-npm install -s react-fluid-form mobx mobx-react
+npm install -s react-fluid-form mobx mobx-react yup lodash
 // or:
-yarn add react-fluid-form mobx mobx-react
+yarn add react-fluid-form mobx mobx-react yup lodash
 ```
 
 ## Inspiration
 
 I made this library for particular use, because some libraries I used did not satisfy me: formik, mobx-react-form, unform. Some features are inspired by these libs.
 \
+\
 The purpose of this library is to be easy to use, with hooks and mobx, which in my use proved to be more performative. Validation is completely optional and customizable. I hope it helps who needs something like this.
 \
+\
 I used Mobx for store the state (https://mobx.js.org)
+
+
+[![Edit fluid-form-example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/fluid-form-example-ksbq0?fontsize=14&hidenavigation=1&theme=dark)
+
 ## Quick start
 
 ### Table of Contents
@@ -103,14 +110,7 @@ function MyForm() {
 
 Optionally, pass the validator. React fluid form, by default, uses `yup` for validation, but you can create your custom validator, or use other libraries. There is no need to use react-fluid-form with validation, just you want.
 \
-If you choose yup, it's necessary install:
-
-```bash
-npm i -s yup
-// or:
-yarn add yup
-```
-
+\
 Example code:
 
 ```typescript
