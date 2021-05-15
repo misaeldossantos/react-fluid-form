@@ -21,14 +21,22 @@ I used Mobx for store the state (https://mobx.js.org)
 ## Quick start
 
 ### Table of Contents
-- [1. Initial configuration](#1-initial-configuration)
-	- [1.1 Define components](#11-define-components)
-	- [1.2 Add \<FormProvider />](#12-add-formprovider-)
-- [2. Create your form](#2-create-your-form)
-	- [2.1 Call useForm hook](#21-call-useform-hook)
-	- [2.2 Validate the form](#22-validate-the-form)
-	- [2.3 Wrap your component with \<Form />](#23-wrap-your-component-with-form-)
-- [3. Form instance](#3-form-instance)
+- [React Fluid Form](#react-fluid-form)
+    - [Reactive forms for react and react native, using hooks and Mobx@6](#reactive-forms-for-react-and-react-native-using-hooks-and-mobx6)
+  - [Installation:](#installation)
+  - [Inspiration](#inspiration)
+  - [Quick start](#quick-start)
+    - [Table of Contents](#table-of-contents)
+    - [1. Initial configuration](#1-initial-configuration)
+      - [1.1 Define components](#11-define-components)
+      - [1.2 Add \<FormProvider />](#12-add-formprovider-)
+    - [2. Create your form](#2-create-your-form)
+      - [2.1 Call useForm hook](#21-call-useform-hook)
+      - [2.2 Validate the form](#22-validate-the-form)
+      - [2.3 Wrap your component with \<Form />](#23-wrap-your-component-with-form-)
+      - [2.3 Wrap your field with \<Field />](#23-wrap-your-field-with-field-)
+    - [3. Form instance](#3-form-instance)
+    - [Contributions](#contributions)
 
 
 ### 1. Initial configuration
@@ -39,21 +47,21 @@ First, you need to create a `bind components` object, that tells to library how 
 ```typescript
 
 const components = {
-	form: {
-		textInput: {
-			asValue: "value", // how pass value to field (default is "value")
-			asChange: ["onChange", ev => ev.target.value], // event for onChange (default is "onChange")
-			defaultValue: "", 
-			type: String,
-			asBlur: ["onBlur"] // event for onBlur (default is "onBlur")
-		},
-		checkbox: {
-			asValue: "checked",
-			asChange: ["onSelect"],
-			defaultValue: false,
-			type: Boolean
-		}
-	}
+  form: {
+    textInput: {
+      asValue: "value", // how pass value to field (default is "value")
+      asChange: ["onChange", ev => ev.target.value], // event for onChange (default is "onChange")
+      defaultValue: "", 
+      type: String,
+      asBlur: ["onBlur"] // event for onBlur (default is "onBlur")
+    },
+    checkbox: {
+      asValue: "checked",
+      asChange: ["onSelect"],
+      defaultValue: false,
+      type: Boolean
+    }
+  }
 }
 
 ```
@@ -67,9 +75,9 @@ After, you need wrap root component with `<FormProvider />`, and pass components
 import { FormProvider } from 'react-fluid-form'
 
 function App() {
-	return <FormProvider components={components}>
-		// ...your code
-	</FormProvider>
+  return <FormProvider components={components}>
+    // ...your code
+  </FormProvider>
 }
 
 ```
@@ -87,11 +95,11 @@ With instance, you can get the result values, errors, validate programmatically,
 import { useForm } from 'react-fluid-form'
 
 function MyForm() {
-	const form = useForm({
-		initialValues: {
+  const form = useForm({
+    initialValues: {
 
-		} // optional
-	})
+    } // optional
+  })
 }
 
 ```
@@ -118,9 +126,9 @@ import * as yup from 'yup'
 
 // Unsing yup:
 const schema = yup.object().shape({
-	person: yup.object({
-		name: yup.string().required()
-	}).required()
+  person: yup.object({
+    name: yup.string().required()
+  }).required()
 })
 
 const validator = useYupValidator(schema)
@@ -130,27 +138,27 @@ const form = useForm({ validator })
 
 // Custom validator:
 const validator = function(path, values) {
-	// params example: 
-	// path: "person.name"
-	// values: {person: {name: ""}}
+  // params example: 
+  // path: "person.name"
+  // values: {person: {name: ""}}
 
-	// If path is undefined, react-fluid-form is validating entire form
-	const { person: {name} } = values
+  // If path is undefined, react-fluid-form is validating entire form
+  const { person: {name} } = values
 
-	if(path) {
-		// validating specific path of form
-		if(path === "person.name" && name) { 
-			return "Name of person is required"
-		}
-		return ""
-	} 
+  if(path) {
+    // validating specific path of form
+    if(path === "person.name" && name) { 
+      return "Name of person is required"
+    }
+    return ""
+  } 
 
-	// validating entire form
-	if(!name) {
-		return {
-			"person.name": "Name of person is required"
-		}
-	}
+  // validating entire form
+  if(!name) {
+    return {
+      "person.name": "Name of person is required"
+    }
+  }
 }
 
 ```
@@ -162,14 +170,14 @@ const validator = function(path, values) {
 import {useForm, Form, Field} from 'react-fluid-form'
 
 function MyForm() {
-	const form = useForm()
-	
-	return <Form
-		form={form}
-		validateOnBlur // to validate path on blur the field
-	>
-		// ...
-	</Form>
+  const form = useForm()
+  
+  return <Form
+    form={form}
+    validateOnBlur // to validate path on blur the field
+  >
+    // ...
+  </Form>
 }
 
 ```
@@ -182,19 +190,19 @@ import {useForm, Form, Field} from 'react-fluid-form'
 import {observer} from 'mobx-react'
 
 function MyForm() {
-	const form = useForm()
-	
-	return <Form
-		form={form}
-		validateOnBlur // to validate path on blur the field
-	>
-		<Field
-			path={"person.name"}
-			use={"textInput"}
-		>
-			<input placeholder={"Name"} />
-		</Field>
-	</Form>
+  const form = useForm()
+  
+  return <Form
+    form={form}
+    validateOnBlur // to validate path on blur the field
+  >
+    <Field
+      path={"person.name"}
+      use={"textInput"}
+    >
+      <input placeholder={"Name"} />
+    </Field>
+  </Form>
 }
 
 // Important: for use form instance properties, wrap MyForm in observer (of mobx-react - https://github.com/mobxjs/mobx-react):
@@ -213,8 +221,8 @@ Form instance has some helper properties and methods:
 | Prop/Method                      | Return type |             Description              |
 | :------------------------------- | :---------: | :----------------------------------: |
 | `form.isValid`                   |   boolean   |      Check if the forn is valid      |
-| `from.raw`                       |    object     |          Get values to save          |
-| `from.errors`                    |    object     |            Errors object             |
+| `from.raw`                       |   object    |          Get values to save          |
+| `from.errors`                    |   object    |            Errors object             |
 | `from.validatePath(path)`        |    void     |        Validate path of form         |
 | `from.setValues(values)`         |    void     |       Pass new values to form        |
 | `from.setPathValue(path, value)` |    void     |     Set value for specific path      |
