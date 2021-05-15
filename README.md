@@ -1,10 +1,8 @@
-<p align="center">
-     <img 
-     align="center" 
+
+<img 
      src="./logo.png" 
      height="128px"
-     />
-</p>
+/>
 
 ### Reactive forms for react and react native, using hooks and Mobx@6
 
