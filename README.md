@@ -53,20 +53,18 @@ First, you need to create a `bind components` object, that tells to library how 
 ```typescript
 
 const components = {
-  form: {
-    textInput: {
-      asValue: "value", // how pass value to field (default is "value")
-      asChange: ["onChange", ev => ev.target.value], // event for onChange (default is "onChange")
-      defaultValue: "", 
-      type: String,
-      asBlur: ["onBlur"] // event for onBlur (default is "onBlur")
-    },
-    checkbox: {
-      asValue: "checked",
-      asChange: ["onSelect"],
-      defaultValue: false,
-      type: Boolean
-    }
+  textInput: {
+    asValue: "value", // how pass value to field (default is "value")
+    asChange: ["onChange", ev => ev.target.value], // event for onChange (default is "onChange")
+    defaultValue: "", 
+    type: String,
+    asBlur: ["onBlur"] // event for onBlur (default is "onBlur")
+  },
+  checkbox: {
+    asValue: "checked",
+    asChange: ["onSelect"],
+    defaultValue: false,
+    type: Boolean
   }
 }
 
