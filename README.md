@@ -174,6 +174,7 @@ function MyForm() {
   return <Form
     form={form}
     validateOnBlur // to validate path on blur the field
+    validateOnChange // to validate path on change
   >
     // ...
   </Form>
@@ -225,7 +226,7 @@ Form instance has some helper properties and methods:
 | `form.validateAll()`        |    void     |        Validate entire form         |
 | `form.validatePath(path)`        |    void     |        Validate path of form         |
 | `form.setValues(values)`         |    void     |       Pass new values to form        |
-| `form.setPathValue(path, value)` |    void     |     Set value for specific path      |
+| `form.setPathValue(path, value, validate)` |    void     |     Set value for specific path      |
 | `form.setPathError(path, error)` |    void     |     Set error for specific path      |
 | `form.mergeValues(values)`       |    void     | Merge values with new values to form |
 | `form.clear()`       |    void     | Clear form, with initialValues |

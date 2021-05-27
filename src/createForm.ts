@@ -54,9 +54,11 @@ export default function ({
       form.validateAll();
     },
 
-    setPathValue(path, value) {
+    setPathValue(path, value, validate = false) {
       _set(form.values, path, value);
-      form.validatePath(path);
+      if (validate) {
+        form.validatePath(path);
+      }
     },
 
     get result() {

@@ -7,6 +7,7 @@ export interface FormObject {
   validatePath(path: string): Promise<boolean>;
   setPathError(path: string, error: string): void;
   getPathValue(path: string): any;
+  setPathValue(path: string, value: any, validate?: boolean): any;
   getPathError(path: string): string;
   setValues(values: { [key: string]: any }): void;
   mergeValues(values: { [key: string]: any }): void;
