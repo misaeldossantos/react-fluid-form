@@ -222,13 +222,29 @@ Form instance has some helper properties and methods:
 | Prop/Method                      | Return type |             Description              |
 | :------------------------------- | :---------: | :----------------------------------: |
 | `form.isValid`                   |   boolean   |      Check if the form is valid      |
-| `form.raw`                       |   object    |          Get values to save          |
+| `form.result`                       |   object    |          Get values to save, without mobx observable          |
 | `form.errors`                    |   object    |            Errors object             |
+| `form.validateAll()`        |    void     |        Validate entire form         |
 | `form.validatePath(path)`        |    void     |        Validate path of form         |
 | `form.setValues(values)`         |    void     |       Pass new values to form        |
 | `form.setPathValue(path, value)` |    void     |     Set value for specific path      |
 | `form.setPathError(path, error)` |    void     |     Set error for specific path      |
 | `form.mergeValues(values)`       |    void     | Merge values with new values to form |
+| `form.clear()`       |    void     | Clear form, with initialValues |
+| `form.clearErrors()`       |    void     | Clear errors |
+
+### 4. Hooks
+
+Now, we have useFormChangeEffect hook. Use when you need to call a function, reacting to a change in the value of a field. 
+
+```tsx
+
+useFormChangeEffect((name) => {
+  console.log("Name changed: ", name)
+}, "name", [])
+
+
+```
 
 ### Contributions
 

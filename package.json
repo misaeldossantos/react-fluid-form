@@ -1,11 +1,11 @@
 {
   "name": "react-fluid-form",
-  "version": "0.2.15",
+  "version": "1.0",
   "description": "Forms to react applications that combines mobx with context api",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack ."
+    "build": "rm -f lib/index.js && webpack ."
   },
   "files": [
     "lib"
@@ -18,7 +18,6 @@
     "react-native"
   ],
   "peerDependencies": {
-    "lodash": "^4.17.15",
     "yup": "*"
   },
   "repository": {
@@ -33,6 +32,8 @@
     "@babel/plugin-proposal-decorators": "^7.8.3",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/react": "^17.0.5",
     "babel-loader": "^8.1.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
@@ -41,6 +42,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "lodash": "^4.17.15",
     "mobx": "^6.1.7",
     "mobx-react": "^7.1.0"
   }

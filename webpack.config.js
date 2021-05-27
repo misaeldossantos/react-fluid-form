@@ -3,7 +3,7 @@ const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     mode: 'production',
-    entry: 'index.js',
+    entry: 'index.ts',
     output: {
         path: path.resolve('lib'),
         filename: 'index.js',
@@ -19,10 +19,10 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /.(js|jsx)$/,
+            test: /.(js|jsx|ts|tsx)$/,
             exclude: /node_modules/,
             resolve: {
-                extensions: ['.js', '.jsx'],
+                extensions: ['.js', '.jsx', '.ts', '.tsx'],
             },
             loader: "babel-loader"
         }]
@@ -32,6 +32,6 @@ module.exports = {
         __dirname: true
     },
     resolve: {
-        extensions: ['.ts', '.js', '.json', '.jsx']
+        extensions: ['.ts', '.js', '.json', '.jsx', '.t']
     }
 }

@@ -1,12 +1,15 @@
 import React from "react";
-import FormClass from "../../core/FormClass";
+import { FormObject } from "./FormObject";
 
-const Validator: (values, path) => { [key: string]: string };
+export type Validator = (
+  values: { [key: string]: any },
+  path: string
+) => { [key: string]: string } | string | undefined;
 
 export const useForm: (props: {
   initialValues?: { [key: string]: any };
   validator?: Validator;
-}) => FormClass;
+}) => FormObject;
 
 export const useYupValidator: (schema) => Validator;
 
@@ -16,7 +19,7 @@ export const Field: React.FC<{
   onChange?: (value) => void;
   displayValue?: (value) => any;
   defaultValue?: any;
-  debounce?: integer;
+  debounce?: number;
 }>;
 
 export const FormProvider: React.FC<{
@@ -32,5 +35,11 @@ export const FormProvider: React.FC<{
 
 export const Form: React.FC<{
   validateOnBlur?: boolean;
-  form: FormClass;
+  form: FormObject;
 }>;
+
+export function useFormChangeEffect(
+  callback: (value: any) => void,
+  path: string,
+  deps: any[]
+);
