@@ -3,7 +3,7 @@ import { makeAutoObservable, set, toJS } from "mobx";
 import { merge, isEmpty, set as _set, get as _get, cloneDeep } from "lodash";
 import { FormObject } from "../lib/types/FormObject";
 
-export default function ({
+export default function createForm({
   initialValues,
   validator,
 }: {
