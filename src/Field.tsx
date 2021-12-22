@@ -1,5 +1,5 @@
 import _, { get } from "lodash";
-import { observer, Observer } from "mobx-react";
+import { observer } from "mobx-react";
 import React, { useContext, useMemo, useState } from "react";
 import Context from "./FormContext";
 import useFormChangeEffect from "./hooks/useFormChangeEffect";
@@ -51,7 +51,7 @@ const Field: React.FC<FieldTypes> = (initialProps) => {
   );
 
   const [localValue, setLocalValue] = useState(() => {
-    return getDisplayValue(defaultValue || getInitialValueForType(props.type));
+    return getDisplayValue(form.getPathValue(path) || defaultValue || getInitialValueForType(props.type));
   });
 
   useFormChangeEffect(
